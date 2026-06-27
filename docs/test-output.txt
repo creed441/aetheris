@@ -1,0 +1,59 @@
+package:   /Users/anurag/Documents/Antigravity/june_risein /project4/contracts/aether-token/Cargo.toml
+workspace: /Users/anurag/Documents/Antigravity/june_risein /project4/contracts/Cargo.toml
+package:   /Users/anurag/Documents/Antigravity/june_risein /project4/contracts/amm-vault/Cargo.toml
+workspace: /Users/anurag/Documents/Antigravity/june_risein /project4/contracts/Cargo.toml
+package:   /Users/anurag/Documents/Antigravity/june_risein /project4/contracts/operations-router/Cargo.toml
+workspace: /Users/anurag/Documents/Antigravity/june_risein /project4/contracts/Cargo.toml
+     Running unittests src/lib.rs (contracts/target/debug/deps/aether_token-d89143b7dec2070f)
+
+running 8 tests
+test test::test_balance_zero ... ok
+test test::test_set_treasury ... ok
+test test::test_initialize ... ok
+test test::test_events_mint ... ok
+test test::test_mint ... ok
+test test::test_burn ... ok
+test test::test_transfer_fee ... ok
+test test::test_mint_unauthorized - should panic ... ok
+
+test result: ok. 8 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.31s
+
+     Running unittests src/lib.rs (contracts/target/debug/deps/amm_vault-288a61c76fcea95d)
+
+running 6 tests
+test test::test_get_price ... ok
+test test::test_add_liquidity ... ok
+test test::test_swap_event ... ok
+test test::test_remove_liquidity ... ok
+test test::test_swap_output ... ok
+test test::test_swap_slippage_fail - should panic ... ok
+
+test result: ok. 6 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.24s
+
+     Running unittests src/lib.rs (contracts/target/debug/deps/operations_router-f31566f4103a4e98)
+
+running 3 tests
+test test::test_get_contracts ... ok
+test test::test_batch_operation ... ok
+test test::test_zero_amount_panics - should panic ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.27s
+
+   Doc-tests aether_token
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests amm_vault
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests operations_router
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+

@@ -1,0 +1,43 @@
+{
+  "network": "testnet",
+  "deployedAt": "2026-04-22T23:51:09.269Z",
+  "note": "Deployed under the AGT identity (predates the AETH rebrand). Addresses and wasm hashes below are verified on-chain via stellar.expert as of 2026-06-27.",
+  "issuerPublicKey": "GBALPCSLWTTOVYUJ35KSDBOQETFDFAGKMQOYN76OWLY7QCIHLQUHINBS",
+  "distributorPublicKey": "GB5GG7YDOJ6EOF46LFFJOB4N2S67MFZOERCC5N762MDKJYJ5CIORYCAE",
+  "asset": "AGT:GBALPCSLWTTOVYUJ35KSDBOQETFDFAGKMQOYN76OWLY7QCIHLQUHINBS",
+  "Token": {
+    "type": "SAC",
+    "asset": "AGT-GBALPCSLWTTOVYUJ35KSDBOQETFDFAGKMQOYN76OWLY7QCIHLQUHINBS-1",
+    "contractId": "CCHLK4RHSS27U4K6VRIP6QW2N5IGBJJES4GA4CI3RRUGP54G4FH5HL7P",
+    "wasmHash": "",
+    "initTxHash": "SAC wrappers do not require initialization"
+  },
+  "AmmVault": {
+    "contractId": "CCQZXG3QGFPLRS6LJJ4XALJGUGVNLISYN6BJSVOH57ED6FYJH7KGKXAR",
+    "wasmHash": "20c73fcc6ccb7566c9fea4e59b3e5157f2a8a67a91a5394071cabe5d805d4dc6",
+    "initTxHash": ""
+  },
+  "OperationsRouter": {
+    "contractId": "CBMGE6BSHIGBXAUMW32D542POCBMI3DHP7ZZGI6RTGPRECJQA3S5ZFDI",
+    "wasmHash": "1f856f760f8836984dd62db88ad40d2c1836334ffc43d60243d18033ac28a14a",
+    "initTxHash": ""
+  },
+  "interContractEvidence": {
+    "vaultToToken": {
+      "status": "verified",
+      "txHash": "d493501bef218966e7e34fa4256f8bd1c1aa0679eb791b16f47cb2452d20b44e",
+      "description": "AMM Vault invoked the token SAC transfer; effects credit the vault contract."
+    },
+    "routerToVault": {
+      "status": "pending",
+      "txHash": "",
+      "description": "execute_multi_hop implemented + unit-tested, but never executed on testnet (router shows 0 invocations). Needs deploy keys."
+    }
+  },
+  "trustline": {
+    "asset": "AGT",
+    "issuer": "GBALPCSLWTTOVYUJ35KSDBOQETFDFAGKMQOYN76OWLY7QCIHLQUHINBS",
+    "limit": "1000000",
+    "setupTxHash": ""
+  }
+}
