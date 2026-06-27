@@ -1,0 +1,12 @@
+{
+  "name": "aetheris",
+  "private": true,
+  "scripts": {
+    "dev": "npm run dev --prefix frontend",
+    "build": "npm run build --prefix frontend",
+    "start": "npm run start --prefix frontend"
+  },
+  "devDependencies": {
+    "next": "14.2.23"
+  }
+}
