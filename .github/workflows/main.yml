@@ -1,0 +1,100 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  lint-contracts:
+    name: Lint Smart Contracts
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v4
+
+    - name: Setup Rust
+      uses: dtolnay/rust-toolchain@stable
+      with:
+        targets: wasm32-unknown-unknown
+        components: rustfmt, clippy
+
+    - name: Rust Check & Format
+      run: |
+        cd contracts
+        cargo fmt --all -- --check
+
+    - name: Rust Clippy
+      run: |
+        cd contracts
+        cargo clippy --target wasm32-unknown-unknown -- -D warnings
+
+  test-contracts:
+    name: Test Smart Contracts
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v4
+
+    - name: Setup Rust
+      uses: dtolnay/rust-toolchain@stable
+
+    - name: Run Tests
+      run: |
+        cd contracts
+        cargo test --all -- --nocapture
+
+  lint-frontend:
+    name: Lint Frontend
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v4
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: 20.x
+        cache: 'npm'
+        cache-dependency-path: 'frontend/package-lock.json'
+
+    - name: Install Dependencies
+      run: |
+        cd frontend
+        npm install
+
+    - name: Lint Frontend
+      run: |
+        cd frontend
+        npm run lint
+
+  build-frontend:
+    name: Build Frontend
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v4
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: 20.x
+        cache: 'npm'
+        cache-dependency-path: 'frontend/package-lock.json'
+
+    - name: Install Dependencies
+      run: |
+        cd frontend
+        npm install
+
+    - name: Build Next.js
+      run: |
+        cd frontend
+        npm run build
+      env:
+        NEXT_PUBLIC_APP_URL: http://localhost:3000
+        NEXT_PUBLIC_STELLAR_NETWORK: TESTNET
+        NEXT_PUBLIC_POOL_CONTRACT_ADDRESS: CCQZXG3QGFPLRS6LJJ4XALJGUGVNLISYN6BJSVOH57ED6FYJH7KGKXAR
+        NEXT_PUBLIC_TOKEN_CONTRACT_ADDRESS: CCHLK4RHSS27U4K6VRIP6QW2N5IGBJJES4GA4CI3RRUGP54G4FH5HL7P
+        NEXT_PUBLIC_BRIDGE_CONTRACT_ADDRESS: CBMGE6BSHIGBXAUMW32D542POCBMI3DHP7ZZGI6RTGPRECJQA3S5ZFDI
