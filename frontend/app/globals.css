@@ -1,0 +1,265 @@
+@import "tailwindcss";
+
+@theme {
+  --color-aether: var(--aether);
+  --color-aether-dim: var(--aether-dim);
+  --color-aether-glow: var(--aether-glow);
+  --color-bg-void: var(--bg-void);
+  --color-bg-deep: var(--bg-deep);
+  --color-bg-surface: var(--bg-surface);
+  --color-bg-glass: var(--bg-glass);
+  --color-bg-card: var(--bg-card);
+  --color-border-subtle: var(--border-subtle);
+  --color-border-aether: var(--border-aether);
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --font-display: var(--font-display);
+  --font-body: var(--font-body);
+  --font-mono: var(--font-mono);
+  --radius-sm: var(--radius-sm);
+  --radius-md: var(--radius-md);
+  --radius-lg: var(--radius-lg);
+  --radius-xl: var(--radius-xl);
+}
+
+:root {
+  --aether: #2563EB;
+  --aether-dim: rgba(37, 99, 235, 0.08);
+  --aether-glow: rgba(37, 99, 235, 0.15);
+  --bg-void: #F8FAFC;
+  --bg-deep: #F1F5F9;
+  --bg-surface: #FFFFFF;
+  --bg-glass: rgba(255, 255, 255, 0.85);
+  --bg-card: #FFFFFF;
+  --border-subtle: rgba(0, 0, 0, 0.06);
+  --border-aether: rgba(37, 99, 235, 0.18);
+  --text-primary: #0F172A;
+  --text-secondary: #64748B;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-display: 'Plus Jakarta Sans', sans-serif;
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1.25rem;
+  --nav-height: 72px;
+}
+
+@layer base {
+  * , *::before, *::after {
+    box-sizing: border-box;
+    border-color: var(--border-subtle);
+  }
+
+  html, body {
+    background-color: var(--bg-void);
+    color: var(--text-primary);
+    font-family: var(--font-body);
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    min-height: 100vh;
+    overflow-x: hidden;
+    line-height: 1.5;
+    background: 
+      radial-gradient(circle at 100% 0%, rgba(37, 99, 235, 0.04) 0%, transparent 40%),
+      radial-gradient(circle at 0% 100%, rgba(59, 130, 246, 0.02) 0%, transparent 45%),
+      var(--bg-void);
+    background-attachment: fixed;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--bg-deep);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: rgba(37, 99, 235, 0.15);
+    border-radius: 3px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(37, 99, 235, 0.3);
+  }
+}
+
+@layer components {
+  .glass-card {
+    background: var(--bg-glass);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-xl);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.015), 0 1px 3px rgba(0, 0, 0, 0.02);
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .btn-aether {
+    background: var(--aether);
+    color: #FFFFFF;
+    font-family: var(--font-display);
+    font-weight: 600;
+    border-radius: var(--radius-lg);
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s;
+    box-shadow: 0 4px 14px rgba(37, 99, 235, 0.2);
+  }
+
+  .btn-aether:hover {
+    background: #1D4ED8;
+    box-shadow: 0 6px 20px rgba(37, 99, 235, 0.3);
+    transform: translateY(-0.5px);
+  }
+
+  .btn-aether:active {
+    transform: scale(0.98);
+  }
+
+  .btn-ghost {
+    background: transparent;
+    border: 1px solid var(--border-aether);
+    color: var(--aether);
+    font-family: var(--font-display);
+    font-weight: 600;
+    border-radius: var(--radius-lg);
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .btn-ghost:hover {
+    background: var(--aether-dim);
+    border-color: var(--aether);
+    transform: translateY(-0.5px);
+  }
+
+  .btn-ghost:active {
+    transform: scale(0.98);
+  }
+
+  .aether-input {
+    background: rgba(0, 0, 0, 0.015);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    border-radius: var(--radius-md);
+    color: var(--text-primary);
+    font-family: var(--font-mono);
+    outline: none;
+    transition: all 0.2s;
+  }
+
+  .aether-input:focus {
+    border-color: rgba(37, 99, 235, 0.4);
+    background: #FFFFFF;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.08);
+  }
+
+  .group:focus-within {
+    border-color: rgba(37, 99, 235, 0.4);
+    box-shadow: 0 0 0 1px rgba(37, 99, 235, 0.1);
+  }
+
+  .nav-link {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    color: #64748B;
+    transition: color 0.2s;
+  }
+
+  .nav-link:hover {
+    color: #0F172A;
+  }
+
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--aether);
+    transition: width 0.3s ease;
+    border-radius: 2px;
+  }
+
+  .nav-link.active {
+    color: var(--aether);
+    font-weight: 600;
+  }
+
+  .nav-link.active::after {
+    width: 100%;
+  }
+}
+
+/* Animations and Utilities */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInLeft {
+  from { opacity: 0; transform: translateX(-12px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes fadeInRight {
+  from { opacity: 0; transform: translateX(12px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.97); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-6px); }
+  100% { transform: translateY(0px); }
+}
+
+.animate-fade-up {
+  opacity: 0;
+}
+.animate-fade-up.in-view {
+  animation: fadeInUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-fade-left {
+  opacity: 0;
+}
+.animate-fade-left.in-view {
+  animation: fadeInLeft 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-fade-right {
+  opacity: 0;
+}
+.animate-fade-right.in-view {
+  animation: fadeInRight 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-scale-in {
+  opacity: 0;
+}
+.animate-scale-in.in-view {
+  animation: scaleIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+@layer utilities {
+  .responsive-container {
+    width: 100%;
+    max-width: 80rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
