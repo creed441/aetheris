@@ -59,10 +59,10 @@ All three addresses resolve on Stellar Expert (verified 2026-06-27, HTTP 200, cr
 
 | Contract | Address | Stellar Expert |
 | :--- | :--- | :--- |
-| Token (AETH SAC) | `CBKASJJ5736BXR4CKZJ5U2W5QYQO5NWBPL4FJAEYVLUS2WRX3ZY22U5N` | [link](https://stellar.expert/explorer/testnet/contract/CBKASJJ5736BXR4CKZJ5U2W5QYQO5NWBPL4FJAEYVLUS2WRX3ZY22U5N) |
+| Token (AETH SAC) | `CBKASJJ5736BXR4CKZJ5U2W5QYQO5NWBPL4FJAEYVLUS2WRX3ZY22U5N` | [link](https://stellar.expert/explorer/testnet/contract/CBKASJJ5736BXR4CKZJ5U2W5QYQO5NWBPL4FJAEYVLUS2WRX3ZY22U5N) [...]
 | AMM Vault | `CA2AUUHXYMHXELDP5WGSKQP3BY65IR4UG3WQEUYMSGPJGFZVPN3OSPDY` | [link](https://stellar.expert/explorer/testnet/contract/CA2AUUHXYMHXELDP5WGSKQP3BY65IR4UG3WQEUYMSGPJGFZVPN3OSPDY) |
-| Operations Router | `CCQSH7LE4QAREQNMOSCKHAPK2IBIJHG4DFUWC74JPEADBZJD5WTQHXON` | [link](https://stellar.expert/explorer/testnet/contract/CCQSH7LE4QAREQNMOSCKHAPK2IBIJHG4DFUWC74JPEADBZJD5WTQHXON) |
-| Protocol Manager (account) | `GBUM57WGJMVKTA55536KL2ELHBUN5A2R747CO2KLE7WKVGJQX3OL35AE` | [link](https://stellar.expert/explorer/testnet/account/GBUM57WGJMVKTA55536KL2ELHBUN5A2R747CO2KLE7WKVGJQX3OL35AE) |
+| Operations Router | `CCQSH7LE4QAREQNMOSCKHAPK2IBIJHG4DFUWC74JPEADBZJD5WTQHXON` | [link](https://stellar.expert/explorer/testnet/contract/CCQSH7LE4QAREQNMOSCKHAPK2IBIJHG4DFUWC74JPEADBZJD5WTQHXON)[...]
+| Protocol Manager (account) | `GBUM57WGJMVKTA55536KL2ELHBUN5A2R747CO2KLE7WKVGJQX3OL35AE` | [link](https://stellar.expert/explorer/testnet/account/GBUM57WGJMVKTA55536KL2ELHBUN5A2R747CO2KLE7WKVGJQX[...]
 
 ## Inter-Contract Calls
 
@@ -142,6 +142,16 @@ Loading/pending states are shown during simulation and submission
 
 ### Mobile UI (390px width)
 <img src="./public/screenshots/mobile-swap.png" alt="Mobile swap view" width="300" />
+
+### CI/CD Pipeline Status
+![CI/CD Pipeline Running](./public/screenshots/CI-CD%20pipeline%20running.png)
+
+Real-time CI/CD pipeline execution showing automated build, test, and deployment workflows running on GitHub Actions.
+
+### Contract Test Output
+![Test Output](./public/screenshots/Test%20output.png)
+
+Full contract test suite output demonstrating all 17 unit tests passing across token, AMM vault, and operations router modules.
 
 ### Verification Evidence Status
 | Evidence | Status | Location / Reference |
